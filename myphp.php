@@ -19,17 +19,22 @@
         $grade = $_POST['grade'];
         $section = $_POST['section'];
         $teacher= $_POST['teacherName'];
-    
-    
-    
+ 
+
+       
+        echo 'student name is: ' . $studentName . '</br>';
+        echo 'he/she is in grade: ' . $grade . '</br>';
+        echo 'he/she is studing in section: ' . $section . '</br>';
+        echo 'he/she is studing from teacher: ' . $teacher . '</br>';
 
 
-    echo 'student name is: ' . $studentName . '</br>';
-    echo 'he/she is in grade: ' . $grade . '</br>';
-    echo 'he/she is studing in section: ' . $section . '</br>';
-    echo 'he/she is studing from teacher: ' . $teacher . '</br>';
-
-    
     $mysqli->query("INSERT INTO data(stdname,grade,section,classTeacher) VALUES('$studentName','$grade','$section','$teacher')") or die($mysqli->error);//columname();
+    }
+
+
+
+    if(isset($_GET['delete'])){
+        $id = $_GET['delete'];
+        $mysqli->query("DELETE FROM data WHERE id=$id") or die($mysqli->error());
     }
 ?>
